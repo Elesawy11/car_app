@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:interview_task/core/utils/assets.dart';
-import 'package:interview_task/core/utils/spacer.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../core/utils/assets.dart';
 import 'home_app_bar.dart';
+import 'status_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
@@ -16,27 +16,7 @@ class HomeViewBody extends StatelessWidget {
         child: Column(
           children: [
             const HomeAppBar(),
-            Column(
-              children: [
-                verticalSpace(12),
-                const CircleAvatar(
-                  radius: 36,
-                  backgroundColor: Colors.red,
-                  child: CircleAvatar(
-                    radius: 34,
-                    backgroundColor: Colors.white,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 32,
-                      backgroundImage: AssetImage(
-                        Assets.assetsImagesImage11,
-                      ),
-                    ),
-                  ),
-                ),
-                const Text('جيلي')
-              ],
-            ),
+            SizedBox(height: 110.h, child: const StatusListView()),
             Image.asset(
               Assets.assetsImagesImage6,
             )
