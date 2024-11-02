@@ -6,14 +6,16 @@ import '../../../../../core/utils/spacer.dart';
 class StatusElement extends StatelessWidget {
   const StatusElement({
     super.key,
+    required this.name,
+    required this.image,
   });
-
+  final String name, image;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         verticalSpace(12),
-        const CircleAvatar(
+        CircleAvatar(
           radius: 36,
           backgroundColor: Colors.red,
           child: CircleAvatar(
@@ -23,12 +25,12 @@ class StatusElement extends StatelessWidget {
               backgroundColor: Colors.white,
               radius: 32,
               backgroundImage: AssetImage(
-                Assets.assetsImagesImage11,
+                image,
               ),
             ),
           ),
         ),
-        const Text('جيلي')
+        Text(name)
       ],
     );
   }
