@@ -10,7 +10,7 @@ List<List<String>> statusList = const [
     'تويوتا',
     Assets.assetsImagesImage1,
   ],
-   [
+  [
     'جيلي',
     Assets.assetsImagesImage11,
   ],
@@ -19,4 +19,10 @@ List<List<String>> statusList = const [
     'تويوتا',
     Assets.assetsImagesImage1,
   ],
+];
+
+List<String> carTypesList = const [
+  'أسيوي',
+  'أوروبي',
+  'أمريكي',
 ];
