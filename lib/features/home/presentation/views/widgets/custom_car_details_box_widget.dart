@@ -29,8 +29,18 @@ class CustomCarDetailsBoxWidget extends StatelessWidget {
               width: 12.w,
               height: 12.h,
             ),
-            const Text('السعر'),
-            const Text('12,500')
+            const Text(
+              'السعر',
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+            const Text(
+              '12,500',
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            )
           ],
         ),
       ),

@@ -24,6 +24,9 @@ class CustomCarWidget extends StatelessWidget {
                   child: const Center(
                     child: Text(
                       'جي ام سي | يوكن | الفئة الرابعة',
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),

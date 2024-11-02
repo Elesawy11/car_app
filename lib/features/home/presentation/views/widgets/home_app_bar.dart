@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../../../../../core/utils/spacer.dart';
 
@@ -26,20 +27,29 @@ class HomeAppBar extends StatelessWidget {
         child: Column(
           children: [
             verticalSpace(40),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Badge(
+                const Icon(
+                  Icons.menu,
+                  color: Colors.white,
+                ),
+                IconButton(
+                  onPressed: () {
+                    Get.changeTheme(
+                        Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+                  },
+                  icon: const Icon(
+                    Icons.dark_mode,
+                  ),
+                ),
+                const Badge(
                   label: Text('2'),
                   child: Icon(
                     Icons.notifications_outlined,
                     color: Colors.white,
                   ),
                 ),
-                Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                )
               ],
             ),
             verticalSpace(8)

@@ -9,7 +9,6 @@ void main(List<String> args) {
 
 class InterviewTask extends StatelessWidget {
   const InterviewTask({super.key});
-
   @override
   Widget build(BuildContext context) {
     return const ScreenUtilInit(
@@ -17,6 +16,8 @@ class InterviewTask extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: GetMaterialApp(
+        // themeMode: ThemeMode.system,
+        locale: Locale('ar'),
         debugShowCheckedModeBanner: false,
         home: HomeView(),
       ),
