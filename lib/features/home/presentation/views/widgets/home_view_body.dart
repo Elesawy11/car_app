@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:interview_task/core/utils/spacer.dart';
 import '../../../../../core/utils/assets.dart';
+import '../../../../../core/widgets/custom_text_field.dart';
+import 'custom_car_widget.dart';
+import 'custom_types_of_Car_list_view.dart';
 import 'home_app_bar.dart';
 import 'status_list_view.dart';
 
@@ -15,99 +17,53 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            const HomeAppBar(),
-            SizedBox(
-              height: 120.h,
-              child: const StatusListView(),
-            ),
-            Image.asset(
-              Assets.assetsImagesImage6,
-            ),
-            verticalSpace(12),
-            const CustomCarWidget()
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class CustomCarWidget extends StatelessWidget {
-  const CustomCarWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        SizedBox(
-          width: MediaQuery.of(context).size.width * 0.44,
-          child: Column(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.44,
-                color: const Color(0xffD5DBE5),
-                child: const Center(
-                  child: Text(
-                    'جي ام سي | يوكن | الفئة الرابعة',
-                  ),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: SizedBox(
+                // width: MediaQuery.of(context).size.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const HomeAppBar(),
+                    SizedBox(
+                      height: 120.h,
+                      child: const StatusListView(),
+                    ),
+                    Image.asset(
+                      Assets.assetsImagesImage6,
+                    ),
+                    verticalSpace(12),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 12.w),
+                      child: const CustomTextField(),
+                    ),
+                    verticalSpace(12),
+                    SizedBox(
+                      height: 40.h,
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      child: const CustomTypesOfCarListView(),
+                    ),
+                    verticalSpace(18),
+                  ],
                 ),
               ),
-              Image.asset(Assets.assetsImagesImage1),
-            ],
-          ),
-        ),
-        Positioned(
-          bottom: -30,
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.44,
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CustomDetailsWidget(),
-                CustomDetailsWidget(),
-                CustomDetailsWidget(),
-                CustomDetailsWidget(),
-              ],
             ),
-          ),
-        )
-      ],
-    );
-  }
-}
-
-class CustomDetailsWidget extends StatelessWidget {
-  const CustomDetailsWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * (0.44 / 4.5),
-      height: 60.h,
-      decoration: BoxDecoration(
-        color: const Color(0xffF7F7FD),
-        // color: Colors.red,
-        borderRadius: BorderRadius.circular(
-          12.r,
-        ),
-      ),
-      child: FittedBox(
-        child: Column(
-          children: [
-            SvgPicture.asset(
-              Assets.assetsIconsHomeAd1,
-              width: 12.w,
-              height: 12.h,
+            SliverGrid.builder(
+              itemCount: 6,
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: MediaQuery.of(context).size.width * 0.5,
+                mainAxisSpacing: 5.h,
+                crossAxisSpacing: 10.w,
+                childAspectRatio: 1,
+              ),
+              itemBuilder: (context, index) {
+                return const CustomCarWidget();
+              },
             ),
-            const Text('السعر'),
-            const Text('12,500')
+            SliverToBoxAdapter(
+              child: Image.asset(Assets.assetsImagesImage5),
+            )
           ],
         ),
       ),
