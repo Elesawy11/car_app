@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:interview_task/features/home/presentation/views/home_view.dart';
 
 void main(List<String> args) {
@@ -15,7 +16,7 @@ class InterviewTask extends StatelessWidget {
       designSize: Size(500, 870),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         home: HomeView(),
       ),
