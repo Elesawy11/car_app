@@ -7,8 +7,11 @@ import '../../../../../core/utils/assets.dart';
 class CustomCarDetailsBoxWidget extends StatelessWidget {
   const CustomCarDetailsBoxWidget({
     super.key,
+    required this.image,
+    required this.text,
+    required this.price,
   });
-
+  final String image, text, price;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,19 +28,19 @@ class CustomCarDetailsBoxWidget extends StatelessWidget {
         child: Column(
           children: [
             SvgPicture.asset(
-              Assets.assetsIconsHomeAd1,
+              image,
               width: 12.w,
               height: 12.h,
             ),
-            const Text(
-              'السعر',
-              style: TextStyle(
+            Text(
+              text,
+              style: const TextStyle(
                 color: Colors.black,
               ),
             ),
-            const Text(
-              '12,500',
-              style: TextStyle(
+            Text(
+              price,
+              style: const TextStyle(
                 color: Colors.black,
               ),
             )
