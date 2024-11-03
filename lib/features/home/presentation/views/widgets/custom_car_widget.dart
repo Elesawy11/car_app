@@ -49,12 +49,12 @@ class CustomCarWidget extends StatelessWidget {
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: carDetailsBoxList.length,
+                itemCount: carsDetailsBoxList.length,
                 itemBuilder: (context, index) {
                   return CustomCarDetailsBoxWidget(
-                    image: carDetailsBoxList[index][0],
-                    text: carDetailsBoxList[index][1],
-                    price: carDetailsBoxList[index][2],
+                    image: carsDetailsBoxList[index][0],
+                    text: carsDetailsBoxList[index][1],
+                    price: carsDetailsBoxList[index][2],
                   );
                 },
               ),
