@@ -1,30 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:interview_task/core/helpers/system_chrome_controller.dart';
 import 'widgets/home_view_body.dart';
 
-class HomeView extends StatefulWidget {
+class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  @override
-  void initState() {
-    setSystemUI();
-    super.initState();
-  }
-
-  void setSystemUI() {
-    // SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Color(0xff52556D),
-    ));
-  }
-
-  @override
   Widget build(BuildContext context) {
+    Get.put(SystemChromeController()).getStatusBarColor();
     return const HomeViewBody();
   }
 }

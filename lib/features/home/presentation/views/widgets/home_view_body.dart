@@ -20,7 +20,6 @@ class HomeViewBody extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: SizedBox(
-              // width: MediaQuery.of(context).size.width,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -51,17 +50,11 @@ class HomeViewBody extends StatelessWidget {
               ),
             ),
           ),
-          // const SliverToBoxAdapter(
-          //   child: CustomCarWidget(),
-          // ),
           SliverGrid.builder(
             itemCount: 6,
             gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               mainAxisSpacing: 24.h,
               maxCrossAxisExtent: MediaQuery.of(context).size.width * 0.5,
-              // mainAxisSpacing: 5.h,
-              // crossAxisSpacing: 10.w,
-              // childAspectRatio: 2,
             ),
             itemBuilder: (context, index) {
               return const CustomCarWidget();
