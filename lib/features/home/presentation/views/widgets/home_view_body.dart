@@ -16,56 +16,68 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: SizedBox(
-                // width: MediaQuery.of(context).size.width,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const HomeAppBar(),
-                    SizedBox(
-                      height: 120.h,
-                      child: const StatusListView(),
-                    ),
-                    Image.asset(
-                      Assets.assetsImagesImage6,
-                    ),
-                    verticalSpace(12),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 12.w),
-                      child: const CustomTextField(),
-                    ),
-                    verticalSpace(12),
-                    SizedBox(
-                      height: 40.h,
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      child: const CustomTypesOfCarListView(),
-                    ),
-                    verticalSpace(18),
-                  ],
-                ),
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: SizedBox(
+              // width: MediaQuery.of(context).size.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const HomeAppBar(),
+                  SizedBox(
+                    height: 120.h,
+                    child: const StatusListView(),
+                  ),
+                  Image.asset(
+                    Assets.assetsImagesImage6,
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.fill,
+                  ),
+                  verticalSpace(12),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12.w),
+                    child: const CustomTextField(),
+                  ),
+                  verticalSpace(12),
+                  Container(
+                    alignment: Alignment.center,
+                    height: MediaQuery.of(context).size.height * 0.06,
+                    width: MediaQuery.of(context).size.width,
+                    child: const CustomTypesOfCarListView(),
+                  ),
+                  verticalSpace(18),
+                ],
               ),
             ),
-            SliverGrid.builder(
-              itemCount: 6,
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: MediaQuery.of(context).size.width * 0.5,
-                mainAxisSpacing: 5.h,
-                crossAxisSpacing: 10.w,
-                childAspectRatio: 1,
-              ),
-              itemBuilder: (context, index) {
-                return const CustomCarWidget();
-              },
+          ),
+          // const SliverToBoxAdapter(
+          //   child: CustomCarWidget(),
+          // ),
+          SliverGrid.builder(
+            itemCount: 6,
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              mainAxisSpacing: 24.h,
+              maxCrossAxisExtent: MediaQuery.of(context).size.width * 0.5,
+              // mainAxisSpacing: 5.h,
+              // crossAxisSpacing: 10.w,
+              // childAspectRatio: 2,
             ),
-            SliverToBoxAdapter(
-              child: Image.asset(Assets.assetsImagesImage5),
-            )
-          ],
-        ),
+            itemBuilder: (context, index) {
+              return const CustomCarWidget();
+            },
+          ),
+          SliverToBoxAdapter(
+            child: verticalSpace(24),
+          ),
+          SliverToBoxAdapter(
+            child: Image.asset(
+              Assets.assetsImagesImage5,
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.fill,
+            ),
+          )
+        ],
       ),
     );
   }

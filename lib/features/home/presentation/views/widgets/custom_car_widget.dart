@@ -11,65 +11,52 @@ class CustomCarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      // height: 170.h,
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          SizedBox(
-            // width: MediaQuery.of(context).size.width * 0.5,
-            child: Column(
-              children: [
-                Container(
-                  color: const Color(0xffD5DBE6),
-                  child: const Center(
-                    child: FittedBox(
-                      fit: BoxFit.fill,
-                      child: Text(
-                        'جي ام سي | يوكن | الفئة الرابعة',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Image.asset(
-                  Assets.assetsImagesImage1,
-                  height: 150.h,
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  fit: BoxFit.fill,
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            bottom: 2,
-            child: SizedBox(
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Column(
+          children: [
+            Container(
               width: MediaQuery.of(context).size.width * 0.5,
-              // height: 60.h,
-              child: SizedBox(
-                height: 60.h,
-                child: ListView.builder(
-                  itemCount: carDetailsBoxList.length,
-                  scrollDirection: Axis.horizontal,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 3.w),
-                      child: CustomCarDetailsBoxWidget(
-                        image: carDetailsBoxList[index][0],
-                        text: carDetailsBoxList[index][1],
-                        price: carDetailsBoxList[index][2],
-                      ),
-                    );
-                  },
+              color: const Color(0xffD5DBE6),
+              child: const FittedBox(
+                fit: BoxFit.fill,
+                child: Text(
+                  'جي ام سي | يوكن | الفئة الرابعة',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ),
-          )
-        ],
-      ),
+            Image.asset(
+              Assets.assetsImagesImage1,
+              height: MediaQuery.of(context).size.height * 0.22,
+              width: MediaQuery.of(context).size.width * 0.5,
+              fit: BoxFit.fill,
+            ),
+          ],
+        ),
+        Positioned(
+          bottom: -30.h,
+          child: SizedBox(
+            height: 60.h,
+            width: MediaQuery.of(context).size.width * 0.5,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: carDetailsBoxList.length,
+              itemBuilder: (context, index) {
+                return CustomCarDetailsBoxWidget(
+                  image: carDetailsBoxList[index][0],
+                  text: carDetailsBoxList[index][1],
+                  price: carDetailsBoxList[index][2],
+                );
+              },
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

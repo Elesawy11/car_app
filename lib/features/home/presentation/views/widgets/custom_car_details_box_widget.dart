@@ -15,7 +15,8 @@ class CustomCarDetailsBoxWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * (0.5 / 4.5),
+      padding: EdgeInsets.all(4.r),
+      width: MediaQuery.of(context).size.width * (0.5 / 4),
       height: 60.h,
       decoration: BoxDecoration(
         color: const Color(0xffF7F7FD),

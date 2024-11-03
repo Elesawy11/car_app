@@ -10,6 +10,7 @@ class CustomTypesOfCarListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      shrinkWrap: true,
       padding: EdgeInsets.zero,
       scrollDirection: Axis.horizontal,
       physics: const NeverScrollableScrollPhysics(),
@@ -35,15 +36,18 @@ class CustomTypeOfCarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width / 4,
+      padding: EdgeInsets.all(10.r),
+      width: MediaQuery.of(context).size.width / 5,
       decoration: BoxDecoration(
-          color: const Color(0xff42455C),
-          borderRadius: BorderRadius.circular(18)),
-      child: Center(
+        color: const Color(0xff42455C),
+        borderRadius: BorderRadius.circular(18.r),
+      ),
+      child: FittedBox(
+        fit: BoxFit.fill,
         child: Text(
           type,
           style: TextStyle(
-            fontSize: 24.sp,
+            fontSize: 18.sp,
             color: Colors.white,
           ),
         ),

@@ -1,10 +1,17 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:interview_task/features/home/presentation/views/home_view.dart';
 
 void main(List<String> args) {
-  runApp(const InterviewTask());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const InterviewTask(),
+    ),
+  );
 }
 
 class InterviewTask extends StatelessWidget {

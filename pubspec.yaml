@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.8
+  device_preview: ^1.2.0
   flutter:
     sdk: flutter
   flutter_screenutil: ^5.9.3
@@ -78,9 +79,9 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 flutter_assets:
-  assets_path: 
+  assets_path:
     - assets/images/
     - assets/icons/
-    
+
   output_path: lib/core/utils/
   filename: assets.dart
