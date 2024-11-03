@@ -8,9 +8,9 @@ import 'custom_car_details_box_widget.dart';
 
 class CustomCarWidget extends StatelessWidget {
   const CustomCarWidget({
-    super.key,
+    super.key, this.bottom,
   });
-
+final double? bottom;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -42,7 +42,7 @@ class CustomCarWidget extends StatelessWidget {
             ],
           ),
           Positioned(
-            bottom: -30.h,
+            bottom:bottom?? -30.h,
             child: SizedBox(
               height: 60.h,
               width: MediaQuery.of(context).size.width * 0.5,
