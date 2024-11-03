@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/spacer.dart';
+import '../constant.dart';
 
 class CustomCarOneDetailsListView extends StatelessWidget {
   const CustomCarOneDetailsListView({
@@ -14,9 +15,13 @@ class CustomCarOneDetailsListView extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.21,
       child: ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: 6,
+        itemCount: customCarDetailsList.length,
         itemBuilder: (context, index) {
-          return const CustomOneDetailCarWidget();
+          return CustomOneDetailCarWidget(
+            icon: customCarDetailsList[index][0],
+            fText: customCarDetailsList[index][1],
+            sText: customCarDetailsList[index][2],
+          );
         },
       ),
     );
@@ -26,8 +31,12 @@ class CustomCarOneDetailsListView extends StatelessWidget {
 class CustomOneDetailCarWidget extends StatelessWidget {
   const CustomOneDetailCarWidget({
     super.key,
+    required this.fText,
+    required this.sText,
+    required this.icon,
   });
-
+  final String fText, sText;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,15 +45,15 @@ class CustomOneDetailCarWidget extends StatelessWidget {
         decoration: const BoxDecoration(color: Color(0xffF7F7FD)),
         child: Row(
           children: [
-            const Icon(Icons.directions_car),
+            Icon(icon),
             horizontalpace(20),
             Text(
-              'اللون الخارجي',
+              fText,
               style: TextStyle(fontSize: 20.sp),
             ),
             const Spacer(),
             Text(
-              'أبيض',
+              sText,
               style: TextStyle(fontSize: 20.sp),
             ),
             const Spacer(),

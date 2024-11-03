@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:interview_task/core/utils/assets.dart';
 
 List<List<String>> statusList = const [
@@ -64,5 +65,38 @@ List<List<String>> carDetailsList = [
     Assets.assetsIconsHomeAd3,
     'الممشي',
     '2000',
+  ],
+];
+
+List<List<dynamic>> customCarDetailsList = const [
+  [
+    Icons.directions_car,
+    'اللون الخارجي',
+    "أبيض",
+  ],
+  [
+    Icons.directions_car,
+    'اللون الداخي',
+    "بيج",
+  ],
+  [
+    Icons.directions_car,
+    "نوع المقعد",
+    "مخمل",
+  ],
+  [
+    Icons.directions_car,
+    "فتحة سقف",
+    "✅",
+  ],
+  [
+    Icons.directions_car,
+    'كاميرا خلفية',
+    "✅",
+  ],
+  [
+    Icons.directions_car,
+    'سينسر',
+    "أمامي-خلفي",
   ],
 ];

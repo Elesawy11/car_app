@@ -8,13 +8,16 @@ import 'custom_car_details_box_widget.dart';
 
 class CustomCarWidget extends StatelessWidget {
   const CustomCarWidget({
-    super.key, this.bottom,
+    super.key,
+    this.bottom,
   });
-final double? bottom;
+  final double? bottom;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.to(const CarDetailsView()),
+      onTap: () => Get.to(const CarDetailsView(),
+          transition: Transition.downToUp,
+          duration: const Duration(milliseconds: 120)),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -42,7 +45,7 @@ final double? bottom;
             ],
           ),
           Positioned(
-            bottom:bottom?? -30.h,
+            bottom: bottom ?? -30.h,
             child: SizedBox(
               height: 60.h,
               width: MediaQuery.of(context).size.width * 0.5,
